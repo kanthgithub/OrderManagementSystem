@@ -90,6 +90,27 @@ Class: com.yieldBroker.repository.OrderRepositoryImpl
 ```
 
 
+### OrderBook Build Logic:
+
+1. Extract Orders from orderRepository in ascendingOrder of Side and receivedTime
+
+2. Filter and seggregare Buy & Sell Orders using java-8 lambda library
+
+3. Extract buy Orders from Order entities
+
+   1. sort by price in Descending Order and receievedTime - Ascending Order
+
+4. Extract Sell Orders from Order entities
+
+   1. sort by price in ascending Order and receievedTime - Ascending Order
+
+5. translate sorted & seggregated order-entities to OrderBookModel Objects
+
+6. set buyOrders and sellOrders property in OrderBook
+
+
+
+
 ## Running the tests
 
 ```
@@ -159,6 +180,7 @@ Test Methods:
 - test_Get_OrderBook_Successfully_And_Verify_Content
 
 ```
+
 
 # Design Improvements:
 
